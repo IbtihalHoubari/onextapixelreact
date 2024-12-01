@@ -1,0 +1,8 @@
+.title{
+    width: calc(100% - 120px);
+    background-color: #fff;
+    padding: 30px;
+    margin: 56px;
+    color: black;
+    font-size: 35px;
+}
