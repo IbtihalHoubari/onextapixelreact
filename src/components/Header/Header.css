@@ -67,3 +67,22 @@ ul{
     background-color: #e0e0e0;
     color: #333;
 }
+.navbar-mobile{
+    display: none;
+}
+@media (max-width:768px){
+    .navbar .navbar-desktop{
+        display: none;
+    }
+    .navbar-mobile{
+        display: inline-block;
+    }
+}
+@media (max-width:400px){
+    .header{
+        flex-direction: column;
+    }
+    .navbar-mobile {
+        padding-left: 56px;
+    }
+}

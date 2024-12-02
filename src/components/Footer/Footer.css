@@ -39,4 +39,17 @@
         font-weight: 550;
         padding-right: 56px; 
 }
-
+@media (max-width:670px){
+    .footer .footer-end ul{
+        flex-direction: column;
+    }
+}
+@media (max-width:500px){
+    .footer{
+        flex-direction: column;
+    }
+    .footer .footer-end {
+        padding-left: 56px;
+        padding-top: 10px;
+    }
+}
