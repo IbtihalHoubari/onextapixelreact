@@ -6,27 +6,16 @@
     gap: 2%;
     padding-bottom: 40px;
 }
+.blogs-container > *:nth-child(n+4) {
+    margin-top: 2%;
+}
 @media (max-width:768px){
-    .blogs-container .blogs-card{
-        width: 49%;
-    }
     .blogs-container > *:nth-child(n+3) {
         margin-top: 2%;
     }
 }
-@media (max-width:670px){
-    .blogs-container .blogs-card .details h2{
-        font-size: 20px;
-    }
-    .blogs-container .blogs-card .details p{
-        margin-top: 10px;
-        font-size: 10px;
-    }
-}
 @media (max-width:500px){
-    .blogs-container .blogs-card {
-        width: 100%;
-    } 
+     
     .blogs-container > *:nth-child(n+2) {
         margin-top: 2%;
     }

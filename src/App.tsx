@@ -1,7 +1,7 @@
 import './App.css';
 import Header from './components/Header';
 import Title from './components/Title';
-import BlogsContainer from './components/BlogsContainer';
+import Home from './Pages/Home';
 import Footer from './components/Footer';
 
 const App = () => {
@@ -9,7 +9,7 @@ const App = () => {
         <div>
             <Header />
             <Title />
-            <BlogsContainer />
+            <Home />
             <Footer />
         </div>
     );

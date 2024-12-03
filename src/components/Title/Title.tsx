@@ -1,8 +1,8 @@
-import './Title.css';
+import style from './Title.module.css';
 
 const Title = () => {
     return (
-        <h1 className="title">Currently Browsing: Design</h1>
+        <h1 className={style.title}>Currently Browsing: Design</h1>
     );
 };
 

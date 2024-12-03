@@ -1,7 +1,7 @@
-import './BlogsContainer.css';
-import BlogCard from '../BlogsCard';
+import style from './Home.module.css';
+import BlogCard from '../components/BlogsCard';
 
-const BlogsContainer = () => {
+const Home = () => {
     const blogs = [
         {
             image: "./src/assets/img/angular-templates.png",
@@ -36,7 +36,7 @@ const BlogsContainer = () => {
     ];
 
     return (
-        <div className="blogs-container">
+        <div className={style[`blogs-container`]}>
             {blogs.map((blog, index) => (
                 <BlogCard 
                     key={index} 
@@ -49,5 +49,4 @@ const BlogsContainer = () => {
     );
 };
 
-export default BlogsContainer;
-
+export default Home;
