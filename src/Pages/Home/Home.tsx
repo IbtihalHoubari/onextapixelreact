@@ -14,7 +14,7 @@ type Blog = {
 const Home = () => {
     const [blogs, setBlogs] = useState<Blog[]>([])
     const [currentBlogs, setCurrentBlogs] = useState<Blog[]>([])
-    const [loader , setLoader] = useState(true)
+    const [loader, setLoader] = useState(true)
     const [pageCount, setPageCount] = useState(0)
     const blogsPerPage = 6;
 
@@ -32,8 +32,11 @@ const Home = () => {
                 setLoader(false);
             }, 2000);
         }
-        
+
     }
+    useEffect(() => {
+        GetBlogs()
+    }, [])
 
     const handlePageClick = (selectedItem: { selected: number }) => {
         const startIndex = selectedItem.selected * blogsPerPage;
@@ -41,20 +44,17 @@ const Home = () => {
         setCurrentBlogs(blogs.slice(startIndex, endIndex));
     };
 
-    useEffect ( () => {
-        GetBlogs()
-    }, [])
 
     if (loader) return <Loader />;
 
     return (
         <div className={style[`blogs-container`]}>
             {currentBlogs.map((blog, index) => (
-                <BlogCard 
-                    key={index} 
-                    image={blog.image} 
-                    title={blog.title} 
-                    description={blog.description} 
+                <BlogCard
+                    key={index}
+                    image={blog.image}
+                    title={blog.title}
+                    description={blog.description}
                 />
             ))}
             <ReactPaginate
@@ -72,4 +72,4 @@ const Home = () => {
 };
 
 export default Home;
-  
+

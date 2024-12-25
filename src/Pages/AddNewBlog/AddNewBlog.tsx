@@ -34,7 +34,13 @@ const AddNewBlog = () => {
                     <label>Image URL:</label>
                     <input
                         type="text"
-                        {...register('image', { required: 'Image URL is required' })}
+                        {...register('image', { 
+                            required: 'Image URL is required',
+                            pattern: {
+                                value: /^(https?:\/\/.*\.(?:png|jpg|jpeg|gif))$/,
+                                message: 'Enter a valid image URL (png, jpg, jpeg, gif)',
+                            },
+                         })}
                         placeholder="Enter image URL"
                     />
                     {errors.image && <p className={style.error}>{errors.image.message}</p>}
