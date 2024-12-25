@@ -1,4 +1,3 @@
-import React from 'react';
 import { useForm } from 'react-hook-form';
 import axios from 'axios';
 import style from './AddNewBlog.module.css';
@@ -48,7 +47,7 @@ const AddNewBlog = () => {
                             required: 'Title is required',
                             pattern: {
                                 value: /^[A-Z][a-zA-Z\s]+$/,
-                                message: 'Title must start with a capital letter, contain no Arabic characters, and no symbols',
+                                message: 'Title must start with a capital letter, contain just English characters, and no symbols',
                             },
                         })}
                         placeholder="Enter title"
@@ -63,6 +62,10 @@ const AddNewBlog = () => {
                             pattern: {
                                 value: /^[a-zA-Z0-9\s]+$/,
                                 message: 'Description must contain only English letters, numbers, and spaces, with no symbols',
+                            },
+                            minLength:{
+                                value: 5,
+                                message: 'Description must be more then 5 characters',
                             },
                             maxLength: {
                                 value: 1000,

@@ -60,10 +60,7 @@ const Home = () => {
             <ReactPaginate
                 previousLabel={'Previous'}
                 nextLabel={'Next'}
-                breakLabel={'...'}
                 pageCount={pageCount}
-                marginPagesDisplayed={2}
-                pageRangeDisplayed={3}
                 onPageChange={handlePageClick}
                 containerClassName={style.pagination}
                 activeClassName={style.active}
