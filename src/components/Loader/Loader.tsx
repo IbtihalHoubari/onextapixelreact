@@ -1,18 +1,13 @@
-import { useEffect, useState } from "react"
+import style from './Loader.module.css'
 
 export default function Loader() {
-  const [text , setText] = useState('')
-
-
-  useEffect ( () => {
-    setTimeout( () =>{
-      setText(
-        'i waited 3 second to be loaded'
-      ), 2000})
-  },[])
-  return (
-    <div>Loader</div>
+  return(
+    <div className={style.loader}>
+        <div className={style.spinner}></div>
+        <p>Loading blogs...</p>
+    </div>
   )
+  
 }
 
 
