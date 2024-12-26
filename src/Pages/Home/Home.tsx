@@ -17,14 +17,16 @@ const Home = () => {
     const [loader, setLoader] = useState(true)
     const [pageCount, setPageCount] = useState(0)
     const blogsPerPage = 6;
+    
 
 
     const GetBlogs = async () => {
         try {
-            const res = await axios.get(`http://localhost:3000/blogs`);
+            const res = await axios.get(`http://localhost:3000/blogs?`);
             setBlogs(res.data);
             setPageCount(Math.ceil(res.data.length / blogsPerPage));
             setCurrentBlogs(res.data.slice(0, blogsPerPage));
+            
         } catch (error) {
             console.error('Error fetching blogs:', error);
         } finally {
@@ -49,6 +51,7 @@ const Home = () => {
 
     return (
         <div className={style[`blogs-container`]}>
+            
             {currentBlogs.map((blog, index) => (
                 <BlogCard
                     key={index}
@@ -57,7 +60,8 @@ const Home = () => {
                     description={blog.description}
                 />
             ))}
-            <ReactPaginate
+            <div className={style.pages} >
+               <ReactPaginate
                 previousLabel={'Previous'}
                 nextLabel={'Next'}
                 pageCount={pageCount}
@@ -66,7 +70,9 @@ const Home = () => {
                 activeClassName={style.active}
                 previousClassName={style.previous}
                 nextClassName={style.next}
-            />
+            /> 
+            </div>
+            
         </div>
     );
 };

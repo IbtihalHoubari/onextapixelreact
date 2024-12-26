@@ -10,7 +10,7 @@ type FormData = {
 };
 
 const AddNewBlog = () => {
-    const { register, handleSubmit, formState: { errors }, reset } = useForm<FormData>();
+    const { register, handleSubmit, formState: { errors }, reset  } = useForm<FormData>({ mode: 'onChange' });
     const navigate = useNavigate();
 
     const AddBlog = async (data: FormData) => {
@@ -25,6 +25,8 @@ const AddNewBlog = () => {
             alert('Failed to add the blog. Please try again.');
         }
     };
+
+    
 
     return (
         <div className={style.form}>
@@ -44,6 +46,7 @@ const AddNewBlog = () => {
                         placeholder="Enter image URL"
                     />
                     {errors.image && <p className={style.error}>{errors.image.message}</p>}
+
                 </div>
                 <div>
                     <label>Title:</label>
@@ -57,6 +60,7 @@ const AddNewBlog = () => {
                             },
                         })}
                         placeholder="Enter title"
+                        
                     />
                     {errors.title && <p className={style.error}>{errors.title.message}</p>}
                 </div>

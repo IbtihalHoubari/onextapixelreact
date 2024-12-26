@@ -1,7 +1,16 @@
-import { Link } from 'react-router-dom';
+import { NavLink , Link } from 'react-router-dom';
 import style from './Header.module.css';
 
 const Header = () => {
+        const NavBarStyles= ({ isActive }: { isActive: boolean }) =>{
+          return {
+            color : isActive ? "white" : "#b5b7ed",
+            fontWeight : isActive ? "bold" : "normal",
+      
+          };
+        };
+
+    
     return (
         <header className={style.header}>
             <div className={style.logo}>
@@ -9,8 +18,8 @@ const Header = () => {
             </div>
             <nav className={style.navbar}>
                 <ul className={style[`navbar-desktop`]}>
-                    <li><Link to={'/home'} className={style.active}>Home</Link></li>
-                    <li><Link to={'/addnewblog'}>Add New Blog</Link></li>
+                    <li><NavLink style={NavBarStyles} to={'/'} >Home</NavLink></li>
+                    <li><NavLink style={NavBarStyles} to={'/addnewblog'}>Add New Blog</NavLink></li>
                 </ul>
                 <div className={style[`navbar-mobile`]}>
                 <button className={style.dropbutton}>

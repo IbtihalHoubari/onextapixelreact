@@ -9,6 +9,9 @@
 .blogs-container > *:nth-child(n+4) {
     margin-top: 2%;
 }
+.pages {
+    width: 100%;
+}
 .pagination {
     display: flex;
     justify-content: center;
