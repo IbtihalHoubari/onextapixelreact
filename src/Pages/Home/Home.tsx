@@ -1,12 +1,16 @@
+  
 import style from './Home.module.css';
 import BlogCard from '../../components/BlogsCard';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-import Loader from '../../components/Loader/Loader';
+import Loader from '../../Shared/Loader/Loader';
 import ReactPaginate from 'react-paginate';
 import { useSelector, useDispatch } from 'react-redux';
-import { showLoader , hideLoader } from '../../components/Loader/LoaderSlice';
-import { RootState } from '../../components/Loader/Store';
+import { showLoader , hideLoader } from '../../Store/LoaderSlice';
+import { RootState } from '../../Store/Store';
+import { useLocation } from 'react-router-dom';
+
+
 
 type Blog = {
     image: string;
@@ -19,10 +23,12 @@ const Home = () => {
     const [currentBlogs, setCurrentBlogs] = useState<Blog[]>([])
     const [pageCount, setPageCount] = useState(0)
     const blogsPerPage = 6;
+    const location = useLocation();
 
-    const loader = useSelector((state: RootState) => state.loader.isLoading);
+
     const dispatch = useDispatch();
 
+    
     const GetBlogs = async () => {
         try {        
             dispatch(showLoader());
@@ -30,6 +36,7 @@ const Home = () => {
             setBlogs(res.data);
             setPageCount(Math.ceil(res.data.length / blogsPerPage));
             setCurrentBlogs(res.data.slice(0, blogsPerPage));
+            
             
         } catch (error) {
             console.error('Error fetching blogs:', error);
@@ -41,6 +48,7 @@ const Home = () => {
         }
 
     }
+
     useEffect(() => {
         GetBlogs()
     }, [])
@@ -50,13 +58,17 @@ const Home = () => {
         const endIndex = startIndex + blogsPerPage;
         setCurrentBlogs(blogs.slice(startIndex, endIndex));
     };
+    const handleAddBlog = (newBlog: Blog) => {
+        const updatedBlogs = [newBlog, ...blogs]; // Add new blog to the start
+        setBlogs(updatedBlogs);
+        setCurrentBlogs(updatedBlogs.slice(0, blogsPerPage));
+        setPageCount(Math.ceil(updatedBlogs.length / blogsPerPage));
+    };
 
-
-    if (loader) return <Loader />;
 
     return (
         <div className={style[`blogs-container`]}>
-            
+
             {currentBlogs.map((blog, index) => (
                 <BlogCard
                     key={index}
@@ -81,6 +93,5 @@ const Home = () => {
         </div>
     );
 };
-
 export default Home;
 

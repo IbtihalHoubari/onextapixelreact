@@ -9,15 +9,19 @@ type FormData = {
     description: string;
 };
 
-const AddNewBlog = () => {
-    const { register, handleSubmit, formState: { errors }, reset  } = useForm<FormData>({ mode: 'onChange' });
+type AddNewBlogProps = {
+    onAddBlog: (newBlog: FormData) => void;
+};
+
+const AddNewBlog = ({ onAddBlog }: AddNewBlogProps) => {
+    const { register, handleSubmit, formState: { errors }, reset } = useForm<FormData>({ mode: 'all' });
     const navigate = useNavigate();
 
     const AddBlog = async (data: FormData) => {
         try {
-
             await axios.post('http://localhost:3000/blogs', data);
             alert('Blog added successfully!');
+            onAddBlog(data); // Update the state in the parent component
             reset();
             navigate('/');
         } catch (error) {
@@ -32,6 +36,7 @@ const AddNewBlog = () => {
         <div className={style.form}>
             <h2>Add New Blog</h2>
             <form onSubmit={handleSubmit(AddBlog)} >
+                
                 <div>
                     <label>Image URL:</label>
                     <input
