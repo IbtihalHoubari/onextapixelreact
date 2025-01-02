@@ -1,0 +1,36 @@
+{
+    "header": {
+      "addNewBlog": "Add New Blog",
+      "home": "Home"
+    },
+    "mainTitle" : "Currently Browsing: Design",
+    "form": {
+      "addBlogHeader": "Add New Blog",
+      "imageLabel": "Image URL:",
+      "imagePlaceholder": "Enter image URL",
+      "imageValidation": {
+        "required": "Image URL is required",
+        "pattern": "Enter a valid image URL (png, jpg, jpeg, gif)"
+      },
+      "titleLabel": "Title:",
+      "titlePlaceholder": "Enter title",
+      "titleValidation": {
+        "required": "Title is required",
+        "pattern": "Title must start with a capital letter, contain just English characters, and no symbols"
+      },
+      "descriptionLabel": "Description:",
+      "descriptionPlaceholder": "Enter description",
+      "descriptionValidation": {
+        "required": "Description is required",
+        "pattern": "Description must contain only English letters, numbers, and spaces, with no symbols",
+        "minLength": "Description must be more than 5 characters",
+        "maxLength": "Description must not exceed 1000 characters"
+      },
+      "submitButton": "Add Blog"
+    },
+    "pagination": {
+      "next": "Next",
+      "prev": "Previous"
+    }
+  }
+  

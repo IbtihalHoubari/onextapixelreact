@@ -1,4 +1,5 @@
 import styles from './BlogCard.module.css';
+import { useTranslation } from 'react-i18next';
 
 interface BlogCardProps {
     image: string;

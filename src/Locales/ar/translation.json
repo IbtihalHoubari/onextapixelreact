@@ -1,0 +1,36 @@
+{
+    "header": {
+      "addNewBlog": "إضافة مدونة جديدة",
+      "home": "الصفحة الرئيسية"
+    },
+    "mainTitle" : "التصفح الحالي: التصميم",
+    "form": {
+      "addBlogHeader": "إضافة مدونة جديدة",
+      "imageLabel": "رابط الصورة:",
+      "imagePlaceholder": "أدخل رابط الصورة",
+      "imageValidation": {
+        "required": "رابط الصورة مطلوب",
+        "pattern": "يرجى إدخال رابط صورة صالح (png, jpg, jpeg, gif)"
+      },
+      "titleLabel": "العنوان:",
+      "titlePlaceholder": "أدخل العنوان",
+      "titleValidation": {
+        "required": "العنوان مطلوب",
+        "pattern": "يجب أن يبدأ العنوان بحرف كبير، ويحتوي على أحرف إنجليزية فقط، ولا يحتوي على رموز"
+      },
+      "descriptionLabel": "الوصف:",
+      "descriptionPlaceholder": "أدخل الوصف",
+      "descriptionValidation": {
+        "required": "الوصف مطلوب",
+        "pattern": "يجب أن يحتوي الوصف على أحرف وأرقام ومسافات فقط، بدون رموز",
+        "minLength": "يجب أن يكون الوصف أطول من 5 أحرف",
+        "maxLength": "يجب ألا يتجاوز الوصف 1000 حرف"
+      },
+      "submitButton": "إضافة المدونة"
+    },
+    "pagination": {
+      "next": "التالي",
+      "prev": "السابق"
+    }
+  }
+  

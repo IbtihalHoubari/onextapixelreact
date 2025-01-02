@@ -12,12 +12,7 @@ const Footer = () => {
                     <a href="#"><img src="./src/assets/img/instagram.svg" alt="instagram" /></a>
                 </div>
             </div>
-            <ul className={styles[`footer-end`]}>
-                <li><a href="#">CATEGORIES</a></li>
-                <li><a href="#">DEALS</a></li>
-                <li><a href="#">ABOUT</a></li>
-                <li><a href="#">ADVERTISE</a></li>
-            </ul>
+            
         </footer>
     );
 };

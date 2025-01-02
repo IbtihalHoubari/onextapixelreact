@@ -1,12 +1,14 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice } from '@reduxjs/toolkit';
 
-type LoaderState = {
-    isLoading : Boolean;
+interface LoaderState {
+    isLoading: boolean;
 }
-const initialState : LoaderState = {
-    isLoading : false 
-}
-const LoaderSlice = createSlice({
+
+const initialState: LoaderState = {
+    isLoading: false,
+};
+
+const loaderSlice = createSlice({
     name: 'loader',
     initialState,
     reducers: {
@@ -19,5 +21,5 @@ const LoaderSlice = createSlice({
     },
 });
 
-export const { showLoader, hideLoader } = LoaderSlice.actions;
-export default LoaderSlice.reducer;
+export const { showLoader, hideLoader } = loaderSlice.actions;
+export default loaderSlice.reducer;

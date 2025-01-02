@@ -73,6 +73,18 @@ ul{
 .navbar-mobile{
     display: none;
 }
+.changelang{
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+}
+.dropbuttonlng {
+    background-color: #ececf1;
+    color: #32325d;
+    padding: 5px;
+    border: none;
+    cursor: pointer;
+}
 @media (max-width:768px){
     .navbar .navbar-desktop{
         display: none;
