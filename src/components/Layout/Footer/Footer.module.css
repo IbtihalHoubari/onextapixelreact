@@ -15,9 +15,11 @@
     flex-direction: column;
     gap: 40px;
     padding-left: 56px;
+    margin-right: 50px;
 }
 .footer-start img{
     width: 150px;
+
 }
 .footer-start .icons{
     display: flex;

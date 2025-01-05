@@ -2,6 +2,30 @@
   "blogs": {
     "en": [
       {
+        "id": "1736060452356",
+        "image": "https://gratisography.com/wp-content/uploads/2024/10/gratisography-cool-cat-800x525.jpg",
+        "title": "Hello",
+        "description": "Hello"
+      },
+      {
+        "id": "1736050867291",
+        "image": "https://gratisography.com/wp-content/uploads/2024/10/gratisography-cool-cat-800x525.jpg",
+        "title": "Hi",
+        "description": "hhhhhhh"
+      },
+      {
+        "id": "1736050833672",
+        "image": "https://gratisography.com/wp-content/uploads/2024/10/gratisography-cool-cat-800x525.jpg",
+        "title": "Hello",
+        "description": "hello"
+      },
+      {
+        "id": "1736048970669",
+        "image": "https://gratisography.com/wp-content/uploads/2024/10/gratisography-cool-cat-800x525.jpg",
+        "title": "SSSSSS",
+        "description": "sssssssssss"
+      },
+      {
         "id": "1",
         "image": "./src/assets/img/angular-templates.png",
         "title": "15+ Best Angular Admin Dashboard Templates of 2020 – Users Choice",
@@ -18,28 +42,45 @@
         "image": "./src/assets/img/design-thinking.png",
         "title": "Design Thinking 101 for Designers",
         "description": "Creativity doesn’t just happen. The most inspired and innovative teams and individualdesigners need to be a part of a culture that enables forward-thinking,acceleration, and efficiency. It’s a…"
+      },
+      {
+        "id": "1736048662716",
+        "image": "https://gratisography.com/wp-content/uploads/2024/10/gratisography-cool-cat-800x525.jpg",
+        "title": "Fffffffff",
+        "description": "ddddddddddd"
       }
     ],
     "ar": [
       {
-        "id": "1",
+        "id": "1736060408508",
+        "image": "https://gratisography.com/wp-content/uploads/2024/10/gratisography-cool-cat-800x525.jpg",
+        "title": "السلام",
+        "description": "عليكم "
+      },
+      {
+        "id": "1736048995134",
+        "image": "https://gratisography.com/wp-content/uploads/2024/10/gratisography-cool-cat-800x525.jpg",
+        "title": "مرحبا",
+        "description": "مرحبا"
+      },
+      {
+        "id": "4",
         "image": "./src/assets/img/angular-templates.png",
         "title": "أفضل 15 قالب لوحة تحكم Angular لعام 2020 - اختيار المستخدمين",
         "description": "لقد قمنا بتجميع قائمة بأفضل قوالب Angular من أجلك."
       },
       {
-        "id": "2",
+        "id": "5",
         "image": "./src/assets/img/google-fonts.png",
         "title": "30 خطوط جوجل جميلة لموقعك على الويب",
         "description": "ليس من السهل دائمًا العثور على خطوط جذابة وسهلة الاستخدام وقابلة للقراءة لموقعك على الويب، ولكن خطوط جوجل، التي تم إطلاقها في عام 2010، تساعد في حل هذه المشكلة. بعد أن بدأنا على نطاق صغير، يتضمن الدليل الآن المزيد..."
       },
       {
-        "id": "3",
+        "id": "6",
         "image": "./src/assets/img/design-thinking.png",
         "title": "التفكير التصميمي 101 للمصممين",
         "description": "الإبداع لا يحدث من تلقاء نفسه. يجب أن تكون الفرق والمصممين الأفراد الأكثر إلهامًا وإبداعًا جزءًا من ثقافة تمكن التفكير المستقبلي والتسارع والكفاءة. إنها..."
       }
-
     ]
   }
 }

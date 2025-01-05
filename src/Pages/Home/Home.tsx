@@ -6,8 +6,6 @@ import { showLoader, hideLoader } from '../../Store/LoaderSlice';
 import Pagination from '../../components/HomePage/Pagination/pagination';
 import { useLoaderData } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import i18n from '../../Shared/i18n/i18n';
-
 
 type Blog = {
     image: string;
@@ -23,42 +21,35 @@ const Home = () => {
     const blogs = useLoaderData() as Blogs;
     console.log('loader Fetched blogs:', blogs);
 
-
     const [currentBlogs, setCurrentBlogs] = useState<Blog[]>([]);
+    const [totalBlogs, setTotalBlogs] = useState<Blog[]>([]);
     const blogsPerPage = 6;
     const dispatch = useDispatch();
-    const { t , i18n } = useTranslation();
+    const { i18n } = useTranslation();
 
     useEffect(() => {
         const getBlogs = async () => {
             try {
                 dispatch(showLoader());
-                const currentLanguage = i18n.language || 'en'; 
-                const selectedBlogs = blogs[currentLanguage as 'en' | 'ar'];
-
-                console.log('Selected blogs:', selectedBlogs); 
-
-                if (selectedBlogs && selectedBlogs.length > 0) {
-                    setCurrentBlogs(selectedBlogs.slice(0, blogsPerPage));
-                } else {
-                    console.error('No blogs found for this language:', currentLanguage);
-                    setCurrentBlogs([]);  
-                }
+                const currentLanguage = i18n.language || 'en';
+                const selectedBlogs = blogs[currentLanguage as keyof Blogs] || [];
+                setTotalBlogs(selectedBlogs);
+                setCurrentBlogs(selectedBlogs.slice(0, blogsPerPage));
             } catch (error) {
                 console.error('Error fetching blogs:', error);
             } finally {
                 setTimeout(() => {
                     dispatch(hideLoader());
-                }, 2000); 
+                }, 2000);
             }
         };
+
         getBlogs();
-    }, [blogs, dispatch, i18n.language]); 
-    
+    }, [blogs, dispatch, i18n.language]);
+
+
     const updateCurrentBlogs = (startIndex: number, endIndex: number) => {
-        const currentLanguage = i18n.language || 'en';
-        const selectedBlogs = blogs[currentLanguage as 'en' | 'ar'];
-        setCurrentBlogs(selectedBlogs.slice(startIndex, endIndex));
+        setCurrentBlogs(totalBlogs.slice(startIndex, endIndex));
     };
 
 
@@ -74,7 +65,7 @@ const Home = () => {
             ))}
             <div className={style.pages} >
                 <Pagination
-                    totalItems={currentBlogs.length}
+                    totalItems={totalBlogs.length}
                     blogsPerPage={blogsPerPage}
                     onPageChange={updateCurrentBlogs}
                 />

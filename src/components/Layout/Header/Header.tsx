@@ -1,17 +1,17 @@
 import { NavLink } from 'react-router-dom';
 import style from './Header.module.css';
 import { useTranslation } from 'react-i18next';
-
-
+import cookies from 'js-cookie';
 
 const Header = () => {
     const { t, i18n } = useTranslation();
 
     const changeLanguage = (lng: string) => {
-        i18n.changeLanguage(lng);
-        document.documentElement.dir = lng === 'ar' ? 'rtl' : 'ltr';
+        i18n.changeLanguage(lng); 
+        cookies.set('i18next', lng); 
+        document.documentElement.dir = lng === 'ar' ? 'rtl' : 'ltr'; 
     };
-
+    
     const NavBarStyles = ({ isActive }: { isActive: boolean }) => {
         return {
             color: isActive ? "white" : "#b5b7ed",
@@ -26,8 +26,8 @@ const Header = () => {
             </div>
             <nav className={style.navbar}>
                 <ul className={style[`navbar-desktop`]}>
-                    <li><NavLink style={NavBarStyles} to={'/'} >{t('header.home')}</NavLink></li>
-                    <li><NavLink style={NavBarStyles} to={'/add-blog'}>{t('header.addNewBlog')}</NavLink></li>
+                    <li><NavLink style={NavBarStyles} to={'/'} >{t("home")}</NavLink></li>
+                    <li><NavLink style={NavBarStyles} to={'/add-blog'}>{t('addNewBlog')}</NavLink></li>
                 </ul>
                 <div className={style[`navbar-mobile`]}>
                     <button className={style.dropbutton}>

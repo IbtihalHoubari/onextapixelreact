@@ -9,6 +9,7 @@
 }
 .header .logo{
     padding-left: 56px;
+    margin-right: 50px;
 }
 
 .header a{
@@ -76,7 +77,8 @@ ul{
 .changelang{
     display: flex;
     align-items: center;
-    margin-right: 10px;
+    margin-right: 20px;
+    margin-left: 20px;
 }
 .dropbuttonlng {
     background-color: #ececf1;

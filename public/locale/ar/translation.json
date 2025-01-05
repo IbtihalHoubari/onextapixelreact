@@ -1,0 +1,20 @@
+{
+    "blogs": [
+      {
+        "id": "1",
+        "title": "تصميم",
+        "description": "مرحبا"
+      },
+      {
+        "id": "2",
+        "title": "تصميم",
+        "description": "مرحبا"
+      },
+      {
+        "id": "3",
+        "title": "تصميم",
+        "description": "مرحبا"
+      }
+    ]
+  }
+  
