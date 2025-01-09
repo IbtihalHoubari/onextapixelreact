@@ -1,9 +1,9 @@
 import { createBrowserRouter } from 'react-router-dom';
 import Layout from '../Pages/Layout/Layout';
-import Home from '../Pages/Home';
+import Home from '../Pages/HomePage';
 import AddNewBlog from '../Pages/AddNewBlog/AddNewBlog';
-import { getBlogs } from '../services/service';
-import i18n from '../Shared/i18n/i18n';
+import i18n from '../i18n';
+import BlogsServices from '../services/blogs-service';
 
 
 const router = createBrowserRouter([
@@ -16,10 +16,10 @@ const router = createBrowserRouter([
         element: <Home />,
         loader: async () => {
           try {
-            const data = await getBlogs();
+            const data = await BlogsServices.getBlogs();
             console.log('Fetched blogs:', data);
             const currentLanguage = i18n.language || 'en';
-
+            console.log('Fetched blogs Language ' , currentLanguage)
             return data;
           } catch (error) {
             console.error('Error in loader:', error);

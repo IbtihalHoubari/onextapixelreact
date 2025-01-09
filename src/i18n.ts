@@ -15,10 +15,10 @@ i18n
       escapeValue: false,
     },
     backend: {
-      loadPath: 'src/locales/{{lng}}/translation.json',
+      loadPath: 'src/locales/{{lng}}.json',
     },
     detection: {
-      order: ['querystring', 'cookie', 'localStorage', 'navigator'],
+      order: ['cookie', 'querystring', 'localStorage', 'navigator'],
       caches: ['cookie'],
     },
   });

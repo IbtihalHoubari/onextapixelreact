@@ -22,8 +22,8 @@ const Pagination: React.FC<PaginationProps> = ({ totalItems, blogsPerPage, onPag
   return (
     <div className={style.paginationContainer}>
       <ReactPaginate
-        previousLabel={t('pagination.prev')}
-        nextLabel={t('pagination.next')}
+        previousLabel={t('paginationPrev')}
+        nextLabel={t('paginationNext')}
         pageCount={pageCount}
         onPageChange={handlePageClick}
         containerClassName={style.pagination}

@@ -1,5 +1,4 @@
 import styles from './BlogCard.module.css';
-import { useTranslation } from 'react-i18next';
 
 interface BlogCardProps {
     image: string;
@@ -14,6 +13,7 @@ const BlogCard = ({ image, title, description }: BlogCardProps) => {
             <div className={styles.details}>
                 <h2>{title}</h2>
                 <p>{description}</p>
+                
             </div>
         </div>
     );
