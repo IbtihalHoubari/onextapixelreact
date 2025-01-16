@@ -18,7 +18,7 @@ i18n
       loadPath: 'src/locales/{{lng}}.json',
     },
     detection: {
-      order: ['cookie', 'querystring', 'localStorage', 'navigator'],
+      order: ['cookie', 'navigator', 'querystring', 'localStorage'],
       caches: ['cookie'],
     },
   });

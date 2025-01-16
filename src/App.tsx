@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import { RootState } from './Store/Store';
 import Loader from './Shared/Loader/Loader';
 import { RouterProvider } from 'react-router-dom';
-import router from './routes/Router';
+import Router from './routes/Router';
 
 
 const App = () => {
@@ -11,7 +11,7 @@ const App = () => {
     return (
         <div>
             { loader && <Loader />}
-            <RouterProvider router={router} />
+            <RouterProvider router={Router} />
 
         </div>
     );

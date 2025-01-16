@@ -1,4 +1,3 @@
-import React from 'react';
 import ReactPaginate from 'react-paginate';
 import style from './pagination.module.css';
 import { useTranslation } from 'react-i18next';
@@ -9,11 +8,11 @@ type PaginationProps = {
   onPageChange: (startIndex: number, endIndex: number) => void;
 };
 
-const Pagination: React.FC<PaginationProps> = ({ totalItems, blogsPerPage, onPageChange }) => {
+const Pagination  = ({ totalItems, blogsPerPage, onPageChange }: PaginationProps) => {
   const pageCount = Math.ceil(totalItems / blogsPerPage);
   const { t } = useTranslation();
  
-  const handlePageClick = (selectedItem: { selected: number }) => {
+  const pageClick = (selectedItem: { selected: number }) => {
     const startIndex = selectedItem.selected * blogsPerPage;
     const endIndex = startIndex + blogsPerPage;
     onPageChange(startIndex, endIndex);
@@ -25,7 +24,7 @@ const Pagination: React.FC<PaginationProps> = ({ totalItems, blogsPerPage, onPag
         previousLabel={t('paginationPrev')}
         nextLabel={t('paginationNext')}
         pageCount={pageCount}
-        onPageChange={handlePageClick}
+        onPageChange={pageClick}
         containerClassName={style.pagination}
         activeClassName={style.active}
         previousClassName={style.previous}

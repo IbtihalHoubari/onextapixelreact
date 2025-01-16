@@ -1,6 +1,6 @@
 import { useForm } from 'react-hook-form';
 import style from './AddNewBlog.module.css';
-import { useNavigate , useLocation } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import BlogsServices from '../../services/blogs-service';
 import { useTranslation } from 'react-i18next';
 import { useEffect } from 'react';
@@ -12,9 +12,9 @@ type FormData = {
 };
 
 const AddNewBlog = () => {
-    const { register, handleSubmit, formState: { errors }, reset , setValue } = useForm<FormData>({ mode: 'all' });
+    const { register, handleSubmit, formState: { errors }, reset, setValue } = useForm<FormData>({ mode: 'all' });
     const navigate = useNavigate();
-    const { t , i18n } = useTranslation();
+    const { t, i18n } = useTranslation();
     const location = useLocation();
     const { blogData } = location.state || {};
 
@@ -25,26 +25,28 @@ const AddNewBlog = () => {
             setValue('description', blogData.description);
         }
     }, [blogData, setValue]);
-    
+
     const AddBlog = async (data: FormData) => {
         try {
             const currentLanguage = i18n.language || 'en';
+            const blogsService = new BlogsServices({});
+
             if (blogData) {
-                await BlogsServices.updateBlog(blogData.id, { ...data, language: currentLanguage });
+                await blogsService.updateBlog(currentLanguage, blogData.id, data);
                 console.log('Blog updated:', data);
             } else {
-                await BlogsServices.addBlog({ ...data, language: currentLanguage });
+                await blogsService.addBlog(currentLanguage, data);
                 console.log('Blog added:', data);
             }
             reset();
             navigate('/');
-          } catch (error) {
+        } catch (error) {
             console.error('Error adding blog:', error);
-          } finally {
-            
-          }
+        } finally {
+
+        }
     };
-    
+
     const validateInput = (value: string, isTitle: boolean) => {
         const isArabic = /^[\u0621-\u064A\u0660-\u0669\s]+$/;
         const isEnglishTitle = /^[A-Z][a-zA-Z\s]+$/;
@@ -53,12 +55,12 @@ const AddNewBlog = () => {
         if (i18n.language === 'ar') {
             if (!isArabic.test(value)) {
                 return isTitle
-                    ? t('titleValidationpatternArabic')
+                    ? t('titleValidationPatternArabic')
                     : t('descriptionValidationpatternArabic');
             }
         } else {
             if (isTitle && !isEnglishTitle.test(value)) {
-                return t('titleValidationpattern');
+                return t('titleValidationPattern');
             }
             if (!isTitle && !isEnglishDescription.test(value)) {
                 return t('descriptionValidationpattern');
@@ -66,22 +68,22 @@ const AddNewBlog = () => {
         }
         return true;
     };
-    
+
     return (
         <div className={style.form}>
-            <h2>{blogData ? t('editBlogHeader') :t('addBlogHeader') }</h2>
-            <form onSubmit={handleSubmit(AddBlog)} >  
+            <h2>{blogData ? t('editBlogHeader') : t('addBlogHeader')}</h2>
+            <form onSubmit={handleSubmit(AddBlog)} >
                 <div>
                     <label>{t('imageLabel')}:</label>
                     <input
                         type="text"
-                        {...register('image', { 
-                            required:  t('imageValidationrequired') as string,
+                        {...register('image', {
+                            required: t('imageValidationRequired') as string,
                             pattern: {
                                 value: /^(https?:\/\/.*\.(?:png|jpg|jpeg|gif))$/,
-                                message: t('imageValidationpattern') as string,
+                                message: t('imageValidationPattern') as string,
                             },
-                         })}
+                        })}
                         placeholder={t('imagePlaceholder')}
                     />
                     {errors.image && <p className={style.error}>{errors.image.message}</p>}
@@ -92,12 +94,12 @@ const AddNewBlog = () => {
                     <input
                         type="text"
                         {...register('title', {
-                            required:  t('titleValidationrequired') as string,
+                            required: t('titleValidationRequired') as string,
                             validate: (value) => validateInput(value, true),
 
                         })}
                         placeholder={t('titlePlaceholder') as string}
-                        
+
                     />
                     {errors.title && <p className={style.error}>{errors.title.message}</p>}
                 </div>
@@ -105,9 +107,9 @@ const AddNewBlog = () => {
                     <label>{t('descriptionLabel')}</label>
                     <textarea
                         {...register('description', {
-                            required:  t('descriptionValidationrequired') as string,
+                            required: t('descriptionValidationrequired') as string,
                             validate: (value) => validateInput(value, false),
-                            minLength:{
+                            minLength: {
                                 value: 5,
                                 message: t('descriptionValidationminLength') as string,
                             },
@@ -122,7 +124,8 @@ const AddNewBlog = () => {
                 </div>
                 <button type="submit" className={style.button}>
                     {blogData ? t('updateButton') : t('submitButton')}
-                </button>            </form>
+                </button>
+            </form>
         </div>
     );
 };
