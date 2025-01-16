@@ -1,4 +1,3 @@
-import { Component } from "react";
 import axios from "axios";
 
 interface Blog {
@@ -8,22 +7,11 @@ interface Blog {
     description: string;
 }
 
-interface State {
-    blogs: Blog[];
-}
-
-class BlogsServices extends Component<{}, State> {
-    constructor(props: {}) {
-        super(props);
-        this.state = {
-            blogs: [],
-        };
-    }
-
-    getBlogs = async (language: string) => {
+class BlogsServices  {
+   
+    static getBlogs = async (language: string) => {
         try {
             const response = await axios.get(`http://localhost:3000/${language}`);
-            this.setState({ blogs: response.data || [] });
             return response.data || [];
         } catch (error) {
             console.error(`Error fetching blogs for Language (${language}):`, error);
@@ -31,44 +19,48 @@ class BlogsServices extends Component<{}, State> {
         }
     };
 
-    addBlog = async (language: string, data: { image: string; title: string; description: string }) => {
+    static async addBlog(
+        language: string,
+        data: { image: string; title: string; description: string }
+      ): Promise<Blog | null> {
         try {
-            const newBlog = {
-                id: Date.now().toString(),
-                ...data,
-            };
-            const response = await axios.post(`http://localhost:3000/${language}`, newBlog);
-            this.setState((prevState) => ({
-                blogs: [...prevState.blogs, response.data],
-            }));
+          const newBlog = {
+            id: Date.now().toString(),
+            ...data,
+          };
+          const response = await axios.post(
+            `http://localhost:3000/${language}`,
+            newBlog
+          );
+          return response.data;
         } catch (error) {
-            console.error(`Error adding blog for Language (${language}):`, error);
+          console.error(`Error adding blog for Language (${language}):`, error);
+          return null;
         }
-    };
+      }
 
-    updateBlog = async (language: string, id: string, data: { image: string; title: string; description: string }) => {
+      static async updateBlog(
+        language: string,
+        id: string,
+        data: { image: string; title: string; description: string }
+      ): Promise<boolean> {
         try {
-            await axios.put(`http://localhost:3000/${language}/${id}`, data);
-            this.setState((prevState) => ({
-                blogs: prevState.blogs.map((blog) =>
-                    blog.id === id ? { ...blog, ...data } : blog
-                ),
-            }));
+          await axios.put(`http://localhost:3000/${language}/${id}`, data);
+          return true;
         } catch (error) {
-            console.error(`Error updating blog ${id} for Language (${language}):`, error);
+          console.error(`Error updating blog ${id} for Language (${language}):`, error);
+          return false;
         }
-    };
-
-    deleteBlog = async (language: string, id: string) => {
+      }
+      static async deleteBlog(language: string, id: string): Promise<boolean> {
         try {
-            await axios.delete(`http://localhost:3000/${language}/${id}`);
-            this.setState((prevState) => ({
-                blogs: prevState.blogs.filter((blog) => blog.id !== id),
-            }));
+          await axios.delete(`http://localhost:3000/${language}/${id}`);
+          return true;
         } catch (error) {
-            console.error(`Error deleting blog ${id} for Language (${language}):`, error);
+          console.error(`Error deleting blog ${id} for Language (${language}):`, error);
+          return false;
         }
-    };
+      }
 }
 
 export default BlogsServices;

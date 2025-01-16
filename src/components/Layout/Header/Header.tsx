@@ -27,19 +27,19 @@ const Header = () => {
                 <img src="./src/assets/img/onextralogo.png" alt="onextrapixel logo" />
             </div>
             <nav className={style.navbar}>
-                <ul className={style[`navbar-desktop`]}>
+                <ul className={style.navbarDesktop}>
                     <li><NavLink style={NavBarStyles} to={'/'} >{t("home")}</NavLink></li>
                     <li><NavLink style={NavBarStyles} to={'/add-blog'}>{t('addNewBlog')}</NavLink></li>
                 </ul>
-                <div className={style[`navbar-mobile`]}>
+                <div className={style.navbarMobile}>
                     <button className={style.dropbutton}>
                         <img width="20px" height="20px" src="./src/assets/img/bars-menu.svg" />
                     </button>
-                    <div className={style[`dropdown-list`]}>
-                        <a href="#">CATEGORIES</a>
-                        <a href="#">DEALS</a>
-                        <a href="#">ABOUT</a>
-                        <a href="#">ADVERTISE</a>
+                    <div className={style.dropdownList}>
+                    <ul >
+                    <li><NavLink style={NavBarStyles} to={'/'} >{t("home")}</NavLink></li>
+                    <li><NavLink style={NavBarStyles} to={'/add-blog'}>{t('addNewBlog')}</NavLink></li>
+                </ul>
                     </div>
                 </div>
                 
@@ -47,7 +47,7 @@ const Header = () => {
             <div className={style.changelang}>
                     <select
                         onChange={(e) => changeLanguage(e.target.value)} value={i18n.language}
-                        className={style.dropbuttonlng}
+                        className={style.dropButtonLng}
                     >
                         <option value="en">English</option>
                         <option value="ar">العربية</option>

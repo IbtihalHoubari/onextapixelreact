@@ -29,13 +29,12 @@ const AddNewBlog = () => {
     const AddBlog = async (data: FormData) => {
         try {
             const currentLanguage = i18n.language || 'en';
-            const blogsService = new BlogsServices({});
 
             if (blogData) {
-                await blogsService.updateBlog(currentLanguage, blogData.id, data);
+                await BlogsServices.updateBlog(currentLanguage, blogData.id, data);
                 console.log('Blog updated:', data);
             } else {
-                await blogsService.addBlog(currentLanguage, data);
+                await BlogsServices.addBlog(currentLanguage, data);
                 console.log('Blog added:', data);
             }
             reset();
@@ -96,6 +95,10 @@ const AddNewBlog = () => {
                         {...register('title', {
                             required: t('titleValidationRequired') as string,
                             validate: (value) => validateInput(value, true),
+                            maxLength: {
+                                value: 50,
+                                message: t('titleValidationMaxLength') as string,
+                            },
 
                         })}
                         placeholder={t('titlePlaceholder') as string}

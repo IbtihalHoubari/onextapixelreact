@@ -66,8 +66,7 @@ const Home = () => {
     const deleteClick = async (id: string) => {
         try {     
             const language = i18n.language || 'en';
-            const blogsService = new BlogsServices({});
-            await blogsService.deleteBlog(language, id);
+            await BlogsServices.deleteBlog(language, id);
             const updatedBlogs = totalBlogs.filter((blog) => blog.id !== id);
             setTotalBlogs(updatedBlogs);
             setCurrentBlogs(updatedBlogs.slice(0, blogsPerPage));
@@ -79,7 +78,7 @@ const Home = () => {
     return (
         <div>
             <h1 className={style.title}>{t('mainTitle')}</h1>
-            <div className={style['blogs-container']}>
+            <div className={style.blogsContainer}>
                 {currentBlogs.map((blog) => (
                     <BlogCard
                         key={blog.id}

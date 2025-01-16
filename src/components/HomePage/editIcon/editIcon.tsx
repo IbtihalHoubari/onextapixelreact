@@ -6,7 +6,7 @@ type EditIconProps = {
 
 const EditIcon = ({ onClick } : EditIconProps) => {
   return (
-    <img className={style.editicon} src="./src/assets/img/edit.svg" onClick={onClick} alt="Edit icon" />
+    <img className={style.editIcon} src="./src/assets/img/edit.svg" onClick={onClick} alt="Edit icon" />
   );
 };
 

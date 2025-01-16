@@ -22,7 +22,7 @@ ul{
 .header .active{
     color: aliceblue;
 }
-.navbar .navbar-desktop{
+.navbar .navbarDesktop{
     display: flex;
     flex-wrap: wrap;
     gap: 17px;
@@ -30,10 +30,10 @@ ul{
     font-size: 14px;
     padding-right: 56px;
 }
-.navbar .navbar-desktop a{
+.navbar .navbarDesktop a{
     color: white;
 }
-.navbar-mobile {
+.navbarMobile {
     position: relative;
     display: none;
     padding-right: 56px;
@@ -46,10 +46,10 @@ ul{
     border: none;
     cursor: pointer;
 }
-.dropdown-list {
+.dropdownList {
     display: none;
     position: absolute;
-    background-color: #f9f9f9;
+    background-color: #0a0a3b;
     min-width: 60px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     border-radius: 8px;
@@ -58,20 +58,20 @@ ul{
     transition: opacity 0.3s ease;
     z-index: 1;
 }
-.dropdown-list a {
+.dropdownList a {
     display: block;
     padding: 10px 2px;
     color: #333;
 }
-.navbar-mobile:hover .dropdown-list {
+.navbarMobile:hover .dropdownList {
     display: block;
     opacity: 1;
 }
-.dropdown-list a:hover {
+.dropdownList a:hover {
     background-color: #e0e0e0;
     color: #333;
 }
-.navbar-mobile{
+.navbarMobile{
     display: none;
 }
 .changelang{
@@ -80,7 +80,7 @@ ul{
     margin-right: 20px;
     margin-left: 20px;
 }
-.dropbuttonlng {
+.dropButtonLng {
     background-color: #ececf1;
     color: #32325d;
     padding: 5px;
@@ -88,10 +88,10 @@ ul{
     cursor: pointer;
 }
 @media (max-width:768px){
-    .navbar .navbar-desktop{
+    .navbar .navbarDesktop{
         display: none;
     }
-    .navbar-mobile{
+    .navbarMobile{
         display: inline-block;
     }
 }
@@ -99,7 +99,7 @@ ul{
     .header{
         flex-direction: column;
     }
-    .navbar-mobile {
+    .navbarMobile {
         padding-left: 56px;
     }
 }

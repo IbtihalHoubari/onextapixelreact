@@ -12,7 +12,7 @@ interface BlogCardProps {
 
 const BlogCard = ({ image, title, description, onEdit, onDelete }: BlogCardProps) => {
     return (
-        <div className={styles['blogs-card']}>
+        <div className={styles.blogsCard}>
             <img className={styles.image} src={image} alt={title} />
             <div className={styles.details}>
                 <h2>{title}</h2>
