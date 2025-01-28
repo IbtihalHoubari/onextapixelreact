@@ -2,21 +2,9 @@
   "en": [
     {
       "image": "https://gratisography.com/wp-content/uploads/2024/10/gratisography-cool-cat-800x525.jpg",
-      "title": "Reactjskkk",
-      "description": "react",
+      "title": "Reactjs",
+      "description": "reactjs",
       "id": "1736816911674"
-    },
-    {
-      "id": "1736807558046",
-      "image": "https://gratisography.com/wp-content/uploads/2024/10/gratisography-cool-cat-800x525.jpg",
-      "title": "JavaScriptd",
-      "description": "JavaScript"
-    },
-    {
-      "id": "1736807551375",
-      "image": "https://gratisography.com/wp-content/uploads/2024/10/gratisography-cool-cat-800x525.jpg",
-      "title": "JavaScript",
-      "description": "JavaScript"
     },
     {
       "id": "1736807543698",
@@ -25,17 +13,35 @@
       "description": "JavaScript"
     },
     {
-      "id": "1736409177358",
       "image": "https://gratisography.com/wp-content/uploads/2024/10/gratisography-cool-cat-800x525.jpg",
       "title": "Hello",
-      "description": "Helloff"
+      "description": "Hello",
+      "id": "1736409177358"
+    },
+    {
+      "id": "1737123669729",
+      "image": "https://dfstudio-d420.kxcdn.com/wordpress/wp-content/uploads/2019/06/digital_camera_photo-1080x675.jpg",
+      "title": "Desgin",
+      "description": "Desgin"
+    },
+    {
+      "id": "1737123708838",
+      "image": "https://dfstudio-d420.kxcdn.com/wordpress/wp-content/uploads/2019/06/digital_camera_photo-1080x675.jpg",
+      "title": "Camera",
+      "description": "Camera"
+    },
+    {
+      "image": "https://dfstudio-d420.kxcdn.com/wordpress/wp-content/uploads/2019/06/digital_camera_photo-1080x675.jpg",
+      "title": "React js",
+      "description": "React ",
+      "id": "1737124008093"
     }
   ],
   "ar": [
     {
       "image": "https://gratisography.com/wp-content/uploads/2024/10/gratisography-cool-cat-800x525.jpg",
       "title": "جافا سكربت",
-      "description": "جافا سكربت جافا",
+      "description": "جافا سكربت ",
       "id": "1736413732535"
     },
     {
@@ -57,22 +63,22 @@
       "description": "جافا سكربت"
     },
     {
-      "id": "1736940368287",
       "image": "https://gratisography.com/wp-content/uploads/2024/10/gratisography-cool-cat-800x525.jpg",
-      "title": "جافا سكربت",
-      "description": "تايب سكربت"
+      "title": "تايب سكربت",
+      "description": "تايب سكربت",
+      "id": "1736940368287"
     },
     {
       "image": "https://gratisography.com/wp-content/uploads/2024/10/gratisography-cool-cat-800x525.jpg",
       "title": "جافا سكربت ",
-      "description": "جافا سكربت جافا",
+      "description": "جافا سكربت ",
       "id": "1736985029142"
     },
     {
-      "id": "1736985130238",
       "image": "https://gratisography.com/wp-content/uploads/2024/10/gratisography-cool-cat-800x525.jpg",
-      "title": "جافا سكربت",
-      "description": "تايب سكربت"
+      "title": "تايب سكربت",
+      "description": "تايب سكربت",
+      "id": "1736985130238"
     },
     {
       "image": "https://gratisography.com/wp-content/uploads/2024/11/gratisography-augmented-reality-800x525.jpg",

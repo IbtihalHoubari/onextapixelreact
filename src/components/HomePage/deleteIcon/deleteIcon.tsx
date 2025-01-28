@@ -6,7 +6,7 @@ type DeleteIconProps = {
 
 const DeleteIcon = ({ onClick } : DeleteIconProps) => {
   return (
-    <img className={style.deleteIcon} src="./src/assets/img/trash.svg" onClick={onClick} alt="Delete icon" />
+    <img className={style.deleteIcon} src="./src/assets/img/trash.svg" onClick={onClick} alt="Delete Icon" />
   );
 };
 

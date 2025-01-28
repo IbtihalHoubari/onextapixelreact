@@ -7,7 +7,7 @@ export default function Loader() {
 
   return(
     <div className={style.loader}>
-        <div className={style.spinner}></div>
+        <div data-testid="spinner" className={style.spinner}></div>
         <p>{t('loader')}</p>
     </div>
   )
